@@ -22,4 +22,7 @@
 	```bash
 	$ git revert --no-commit HEAD~3..
 	```
-
+- 원격 branch 삭제 하기
+	```bash
+	$ git push origin --delete [branch명]
+	```
