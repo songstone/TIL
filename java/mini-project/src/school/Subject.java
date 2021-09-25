@@ -16,6 +16,11 @@ public class Subject {
         studentList = new ArrayList<>();
     }
 
+    public boolean register(Student student){
+        studentList.add(student);
+        return true;
+    }
+
     public String getSubjectID() {
         return subjectID;
     }
