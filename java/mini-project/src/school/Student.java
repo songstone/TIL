@@ -20,6 +20,11 @@ public class Student {
         this.scoreList = new ArrayList<>();
     }
 
+    public boolean addScore(Score score){
+        this.scoreList.add(score);
+        return true;
+    }
+
     public String getStudentID() {
         return studentID;
     }
