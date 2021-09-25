@@ -20,4 +20,35 @@ public class Student {
         this.scoreList = new ArrayList<>();
     }
 
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public Subject getMajor() {
+        return major;
+    }
+
+    public void setMajor(Subject major) {
+        this.major = major;
+    }
+
+    public ArrayList<Score> getScoreList() {
+        return scoreList;
+    }
+
+    public void setScoreList(ArrayList<Score> scoreList) {
+        this.scoreList = scoreList;
+    }
 }
