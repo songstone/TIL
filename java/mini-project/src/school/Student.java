@@ -20,7 +20,9 @@ public class Student {
         this.scoreList = new ArrayList<>();
     }
 
-    public boolean addScore(Score score){
+    public boolean addScore(Subject subject, int point){
+        Score score = new Score(subject, point);
+        score.setStudentID(this.studentID);
         this.scoreList.add(score);
         return true;
     }
