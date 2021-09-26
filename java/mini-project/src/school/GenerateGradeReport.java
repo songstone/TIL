@@ -66,6 +66,7 @@ public class GenerateGradeReport {
     }
 
     private void makeFooter(Subject subject){
-
+        report.append(String.format("총 %03d 명",subject.getStudentList().size()));
+        report.append(LINE);
     }
 }
