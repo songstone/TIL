@@ -55,9 +55,9 @@ public class GenerateGradeReport {
         for(Score score : scoreList){
             if(score.getSubject().getSubjectID().equals(subjectID)){
                 if(majorID.equals(subjectID)){
-                    evaluation = new MajorEvaluation();
+                    evaluation = majorEval;
                 }else{
-                    evaluation = new BasicEvaluation();
+                    evaluation = basicEval;
                 }
                 return score.getPoint() + " : " + evaluation.getGrade(score.getPoint());
             }
