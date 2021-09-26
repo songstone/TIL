@@ -46,7 +46,7 @@ public class GenerateGradeReport {
         for(Student student : subject.getStudentList()){
             report.append(student.getStudentName() + " | ");
             report.append(student.getStudentID() + " | ");
-            report.append(student.getMajor() + " | ");
+            report.append(student.getMajor().getSubjectName() + " | ");
             report.append(getGrade(student, subject.getSubjectID())+"\n");
             report.append(LINE);
         }
