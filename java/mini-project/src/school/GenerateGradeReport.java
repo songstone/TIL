@@ -22,12 +22,16 @@ public class GenerateGradeReport {
 
     public void gradeReport(){
         for(Subject subject : school.getSubjectList()){
-
+            gradeReport(subject);
         }
     }
 
     public void gradeReport(Subject subject){
-
+        report = new StringBuffer();
+        makeHeader(subject);
+        makeBody(subject);
+        makeFooter(subject);
+        System.out.println(report.toString());
     }
 
     private void makeHeader(Subject subject){
@@ -66,7 +70,7 @@ public class GenerateGradeReport {
     }
 
     private void makeFooter(Subject subject){
-        report.append(String.format("총 %03d 명",subject.getStudentList().size()));
+        report.append(String.format("총 %03d명",subject.getStudentList().size()));
         report.append(LINE);
     }
 }
