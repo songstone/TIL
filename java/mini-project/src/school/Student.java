@@ -24,6 +24,7 @@ public class Student {
         Score score = new Score(subject, point);
         score.setStudentID(this.studentID);
         this.scoreList.add(score);
+        subject.register(this);
         return true;
     }
 
