@@ -70,7 +70,7 @@ public class GenerateGradeReport {
     }
 
     private void makeFooter(Subject subject){
-        report.append(String.format("총 %03d명",subject.getStudentList().size()));
+        report.append(String.format("총 %03d명\n",subject.getStudentList().size()));
         report.append(LINE);
     }
 }
