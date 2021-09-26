@@ -12,7 +12,7 @@ public class Subject {
 
     public Subject(String subjectName){
         this.subjectName = subjectName;
-        this.subjectID = String.format("%04d",seq);
+        this.subjectID = String.format("%04d",++seq);
         studentList = new ArrayList<>();
     }
 
