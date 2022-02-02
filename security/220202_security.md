@@ -1,7 +1,7 @@
 # 스프링 시큐리티
 
 ## 스프링 시큐리티 내부 구조
-![security_structure][./img/security_structure.png]
+![security_structure](./img/security_structure.png)
 - SecurityContextHolder : SecurityContext를 감싼다, SecurityContext를 제공하는 static 메서드를 지원한다.
 - SecurityContext : 접근 주체와 인증에 대한 정보를 담고 있다.
 - Authentication : Pricipal 과 GrantAuthority를 제공한다.
