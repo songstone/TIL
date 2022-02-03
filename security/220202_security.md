@@ -28,4 +28,11 @@
     - BcryptPasswordEncoder : Bcrypt 해시 함수, Password를 무작위로 여러번 시도하여 맞추는 해킹을 방지하기 위해 암호를 확인할 때 의도적으로 느리게 설정. 도를 설정할 수 있는데 강도가 높을수록 오랜 시간 소요
     - Pbkdf2PasswordEncoder : NIST(미국표준기술연구소)에 의해서 승인된 알고리즘이고, 미국 정부 시스템에 서도 사용
     - ScryptPasswordEncoder : Pbkdf2와 유사, 무작위로 password를 맞추려고 시도할 때 메모리 사용량을 늘리거나 반대로 메모리 사용량을 줄여서 느린 공격을 실행할 수밖에 없도록 의도적인 방식을 사용. 공격이 매우 어렵고 Pbkdf2보다 안전하다고 평가
-    
+
+## Security Filter
+- 필터 : 요청을 컨트롤러에 전달하기전이나 응답에 컨트롤러의 처리값을 전달하기 전을 감싸 처리. doFilter() 구현 필요
+- 많은 필터 존재, 각자 다른 기능
+- 필터의 추가, 삭제, 순서 변경 가능
+- 필터의 순서에 따라 마지막 순서의 필터부터 감싸 첫번째 순서의 필터가 가장 바깥은 감싸는 구조
+- 확인해보기(FilterChainProxy에서 doFilterInternal의 filters 브레이크 포인트 걸어보기)
+- FilterOrderRegistration 을 통해 오더에 따라 필터 사이 적용 스텝 값은 100(중간에 커스텀 필터를 끼워 넣기)
