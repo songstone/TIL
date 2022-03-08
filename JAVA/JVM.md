@@ -54,3 +54,16 @@
         - 생성된 객체들의 정보의 주소값이 저장되는 공간
         - Class Loader에 의해 로드된 class, method 등에 대한 meta 정보가 저장되는 영역, JVM에 의해 사용
         - Reflection을 사용하여 동적으로 클래스가 로딩되는 경우에 사용
+
+## Garbage Collection
+- Garbage Collector에 의해 이루어진다.
+- Stop-the-world : GC가 이루어지는 동안 GC가 이루어지는 스레드를 제외하고 다른 모든 스레드는 동작을 멈춘다.
+- Minor GC
+    - 새로 생성된 대부분의 객체는 Eden 영역
+    - Eden에서 minor GC를 거쳐 살아남은 객체는 survivor 중 하나로 이동
+    - 그후 minorGC를 거쳐 살아남은 객체들은 이미 객체가 존재하는 survivor로 이동
+    - survivor 중 하나가 다차면 minor GC 실행 후 다른 survivor로 이동
+    - 이 과정을 반복하다 계속 살아남은 객체는 Old로 이동
+- Major GC
+    - Old 영역에 있는 모든 객체를 검사하여 참조 되지 않는 객체들을 한번에 삭제
+    - 더 이상 참조되고 있지 않은 객체 unreachability의 garbage를 삭제
