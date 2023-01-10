@@ -21,10 +21,10 @@
 - 파이프라이닝 : 대부부의 스트림 연산은 스트림 반환 -> 연결하여 큰 파이프라인 구성 가능, Laziness, Short-circuit 등의 최적화
 ```java
 List<String> threeHighCaloricDishNames = menu.stream()
-											.filter(dish -> dish.getCalories() > 300) // 특정요소만 추출 
-											.map(Dish::getName) // 형태 변환
-											.limit(3) // 정해진 개수만 추출
-											.collect(Collectors.toList()); // 스트림을 컬렉션으로 변환하여 반환(최종연산)
+	.filter(dish -> dish.getCalories() > 300) // 특정요소만 추출 
+	.map(Dish::getName) // 형태 변환
+	.limit(3) // 정해진 개수만 추출
+	.collect(Collectors.toList()); // 스트림을 컬렉션으로 변환하여 반환(최종연산)
 ```
 
 ## 스트림과 컬렉션
