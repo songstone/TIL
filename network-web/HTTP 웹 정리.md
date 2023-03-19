@@ -76,3 +76,35 @@
 - 리소스 부분 변경
 ### DELETE(멱등)
 - 리소스 제거
+
+## 데이터 전송(클라이언트 -> 서버)
+- 정적 데이터 조회
+	- 이미지 등의 단순 정적 데이터
+	- 쿼리 파라미터 없이 단순한 리소스 경로로 GET으로 조회
+- 동적 데이터 조회
+	- 게시판과 같은 데이터에서 정렬, 필터 등의 추가 조건
+	- 결과를 줄이기 위해 쿼리 파라미터를 사용해서 GET으로 조회
+- HTML Form 태그로 데이터 전송
+	- form 태그가 submit 되면 브라우저가 form 태그의 데이터를 기반으로 HTTP 메시지 생성 (Content-Type: application/x-www-form-urlencoded)
+	- 파일 데이터 전송 시 form 태그의 enctype으로 Content-Type을 multipart/form-data 로 전송
+	- GET, POST 지원
+  HTTP API 데이터 전송
+  - Content-Type :  application/json 을 주로 사용
+  - GET, POST, PUT, PATCH ...
+
+## HTTP API 설계 예시
+- 행위 보다는 리소스 자체의 개념이 기준
+- 신규 리소스 등록
+	- POST 기반
+		- 최초 요청 시 클라이언트는 신규 등록될 리소스의 경로를 모른다.
+		- 서버가 새로 등록된 리소스 URI를 생성(Location: )
+		- 서버가 리소스 디렉토리를 관리 -> Collection
+		- 대부분 POST 사용
+	- PUT 기반
+		- 완전한 리소스 대체
+		- 최초 요청 시 클라이언트가 신규 등록될 리소스 URI를 알고 있어야 한다.
+		- 클라이언트가 직접 리소스의 URI를 지정
+		- 클라리언트가 리소스 저장소를 관리 -> Store
+- HTML FORM 사용
+	- GET, POST 만 지원
+	- 동사로 된 컨트롤 URI 이용
