@@ -33,3 +33,48 @@
 	- 너무 높으면 -> 임계점 초과하여 서버 자체 다운
 	- 애플리케이션 로직 복잡도, CPU, 메모리, IO 리소스 상황에 따른 최적화 필요
 
+### MVC 패턴
+- 하나의 서블릿이나 JSP로 처리하던 것을 컨트롤러, 뷰 영역으로 나눈 패턴. 웹 어플리케이션 대부분이 사용
+- 컨트롤러 : HTTP 요청을 받아서 **파라미터 검증, 비즈니스 로직 호출, 뷰에 전달할 결과 데이터 모델 세팅**
+- 모델 : 뷰에 출력할 데이터를 담는 역할
+- 뷰 : 모델에 담긴 데이터를 이용해 화면 그리기
+
+- RequestDispatcher dispatcher.forward() : 다른 서블릿이나 jsp로 이동. 서버 내부에서 재호출하는 개념
+- WEB-INF : 해당 경로 안에 리소스는 컨트롤러를 통해서만 호출 가능
+
+### 프론트 컨트롤러
+- 프론트 컨틀롤러 서블릿 하나로 클라이언트의 요청을 처리
+- 요청에 맞는 컨트롤러를 찾아서 호출
+- 공통 로직 처리
+- 스프링 웹 MVC의 DispatcherServlet
+
+### 스프링 MVC
+#### DispatcherServlet
+- 프론트 컨트롤러 역할
+- 스프링 MVC에서의 핵심
+- 모든 경로에 대해서 매핑("/")
+- doDispatch 메서드로 컨트롤러 메서드 호출
+	- 핸들러 조회
+	- 핸들러 어댑터 조회
+	- 핸들러 어댑터 실행
+	- 핸들러 실행
+	- ModelAndView 반환
+	- ViewResolver 호출
+	- View 반환
+	- 뷰 렌더링
+#### 핸들러 매핑, 핸들러 어댑터
+- HandlerMapping
+	- RequestMappingHandlerMapping : 애노테이션 기반 @RequestMapping 검색
+	- BeanNameHandlerMapping : 빈 이름 기반 검색
+	- ...
+- HandlerAdapter
+	- RequestMappingHandlerAdapter : 애너테이션 기반 컨트롤러의 @RequestMapping 처리
+	- HttpRequestHandlerAdapter  : HttpRequestHandler 처리
+	- SimpleControllerHandlerAdapter : 순수 과거 Controller 인터페이스
+	- ...
+#### 뷰 리졸버
+- BeanNameViewResolver : 빈 이름 기반으로 뷰 반환(엑셀 파일 생성에 이용)
+- InternalResourceViewResolver : 뷰 반환
+- ...
+- view.render() 호출 : JSP의 경우 forward() 호출, 나머지는 그냥 렌더링
+
