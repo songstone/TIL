@@ -78,3 +78,28 @@
 - ...
 - view.render() 호출 : JSP의 경우 forward() 호출, 나머지는 그냥 렌더링
 
+### 요청 매핑
+- @RequestMapping
+	- url과 메서드 지정 하여 경로 매핑
+	- 단순 URL 만 지정시 모든 HTTP 메서드 매핑(GET, POST, PUT ...)
+	- HTTP 메서드와 결합하여 축약형 제공 : @GetMapping, @PostMapping, ...
+	- parmas 로 파리미터를 통한 매핑 조건 지정 가능
+	- headers 로 헤더를 통한 매핑 조건 지정 가능
+	- Content-Type헤더를 통한 미디어 타입 조건으로 걸 경우 cousumes 이용
+	- Accept헤더를 통한 미디어 타입 조건으로 걸 경우 produces 이용
+- @PathVariable
+	- 경로 변수
+	- 리소스 경로에 식별자 등의 데이터를 포함
+	- 파라미터로 @PathVariable과 변수명을 지정하여 받을 수 있다.
+	- 변수명이 같으면 이름 생략 가능
+	- 다중 매핑도 가능
+
+### 요청 파라미터 처리
+- @RequestParam
+	- 요청 파라미터를 바로 인자로 받을 수 있다.
+	- required 속성으로 필수 값을 지정 할 수 있다.
+	- defaultValue로 기본값 지정 가능. 빈문자와 null 모두 커버
+	- Map, MultiValueMap으로 전체 파라미터를 받을 수 있다.
+- @ModelAttribute
+	- 스프링이 @ModelAttribute 가 붙은 객체를 생성하여 setter 메서드를 통해 파라미터를 세팅해서 인자로 받을 수 있다.
+	- 생략 가능
