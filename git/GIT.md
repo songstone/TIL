@@ -41,3 +41,9 @@
 	- 영구적으로 저장
 	- 헤더 영역에 추가
 	- 인덱스 영역의 트리, BLOB 형태로 브랜치에 점을 찍는다 -> 버전
+
+## 명령어
+- 설정
+	- `git config --global user.name song` : username 글로벌 설정
+	- `git config --global user.email song@naver.com` : email 글로벌 설정
+	- `git config --list` : 설정 정보 확인
