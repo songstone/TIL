@@ -93,3 +93,21 @@
 	- fast-forwad-merge
 		- main 이 변경 되지 않았을 때 서브 브랜치 포인터를 공통조상에 merge
 		- main branch pointer 가 서브 브랜치 포인터로 이동
+
+## remote repository 연결
+- `git remote add origin (주소)`
+	- 원격 저장소 origin으로 으로 연결
+- `git remote -v`, `git ls-remote`
+	- 원격 저장소 연결 확인
+- `git remote rm origin`
+	- 원격 저장소 삭제
+
+## remote branch 다운
+- `git fetch origin`
+- `git checkout -b (브랜치) origin/(브랜치)`
+
+## merge squash 옵션
+- `git merge --squash (브랜치)`
+	- 브랜치를 합치고 add만 된 상태로 merge
+	- 커밋 메시지 새로 작성 가능
+
