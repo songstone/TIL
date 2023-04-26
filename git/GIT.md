@@ -42,8 +42,47 @@
 	- 헤더 영역에 추가
 	- 인덱스 영역의 트리, BLOB 형태로 브랜치에 점을 찍는다 -> 버전
 
-## 명령어
-- 설정
-	- `git config --global user.name song` : username 글로벌 설정
-	- `git config --global user.email song@naver.com` : email 글로벌 설정
-	- `git config --list` : 설정 정보 확인
+## 설정 정보 확인
+- `git config --global user.name song` : username 글로벌 설정
+- `git config --global user.email song@naver.com` : email 글로벌 설정
+- `git config --list` : 설정 정보 확인
+
+## 되돌리기 : reset
+- 직전 커밋 되돌리기
+- `git reset (option) (돌아갈 commit 내역 번호)`
+- soft
+	- add 된 상태로 커밋 전 상태로 되될린다.
+	- 커밋 변경 시 사용
+- mixed
+	- 작업 영역만 남기고 add 하지 않은 상태로 되돌린다.
+	- 작업 영역 변경 필요 시 사용
+- hard
+	- commit 내용와 변경사항을 아예 날린다
+	- 아예 전 커밋 상태로 돌아가고 싶을 때 사용
+
+## reflog
+- `git reflog`
+- 과거 커밋 내역에 대한 로그 
+- git reset --hard (로그 내역 번호) 로 과거 커밋 상태로 되돌리기 가능
+- 하드 리셋 시킨 후 다시 되돌릴 때 사용
+## amend
+- `git commit amend -m "message"`
+- 로그 번호가 없을 때 commit message 변경 시
+
+## rebase
+- `git rebase -i HEAD~3`
+- squash
+	- 커밋 찌그러뜨리기
+	- 과거 방향으로 찌그러뜨려야 한다
+	- 과거의 커밋으로 주 커밋으로 커밋 내역을 모으는 개념
+- pick
+	- 하나로 합칠 주 커밋 선택
+- 브랜치 정리 커밋 내역 합칠 때
+
+## git branch
+- 특정 시점에서 부터 새로운 작업 분기
+- 메인 브랜치와 서브 브랜치 merge
+	- 3-way-merge : 공통 조상, 현재 main 포인터, 서브 브랜치 포인터 를 비교하여 merge 
+	- fast-forwad-merge
+		- main 이 변경 되지 않았을 때 서브 브랜치 포인터를 공통조상에 merge
+		- main branch pointer 가 서브 브랜치 포인터로 이동
